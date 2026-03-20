@@ -16,7 +16,7 @@ public class NotaService {
     private final NotaRepository notaRepository;
 
     public NotaModel crear(NotaModel nota){
-        if(notaRepository.existeTitulo(nota.getTitulo())){
+        if(notaRepository.existsByTitulo(nota.getTitulo())){
             System.out.println("ya existe");
         }
 
@@ -33,11 +33,11 @@ public class NotaService {
     }
 
     public Optional<NotaModel> findByTitulo(String titulo){
-        return notaRepository.buscarPorTitulo(titulo);
+        return notaRepository.findByTitulo(titulo);
     }
 
     public NotaModel update(String titulo, NotaModel notaDetails){
-        NotaModel nota=notaRepository.buscarPorTitulo(titulo)
+        NotaModel nota=notaRepository.findByTitulo(titulo)
         .orElseThrow(()->new RuntimeException("Nota no encontrada"));
 
         if(notaDetails.getContenido()!=null && !notaDetails.getContenido().trim().isEmpty()){

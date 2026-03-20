@@ -27,13 +27,13 @@ public class NotaController {
         return notaService.findAll();
     }
 
-    @PutMapping
-    public NotaModel update(String titulo, @RequestBody NotaModel nota){
+    @PutMapping("/{titulo}")
+    public NotaModel update(@PathVariable String titulo, @RequestBody NotaModel nota){
         return notaService.update(titulo,nota);
     }
 
-    @DeleteMapping
-    public String delete(Long id){
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id){
        return notaService.eliminar(id);
     }
 }
