@@ -16,9 +16,11 @@ export class NotasComponent {
   modal=document.getElementById("nota");
   span = document.getElementsByClassName("close")[0];
 
-  notas: NotasModel | undefined;
+  //notas: NotasModel[] | undefined;
 
-  constructor(private notasService:NotasService, private changeD:ChangeDetectorRef){
+  notas: any[]=[];
+
+  constructor(private notasService: NotasService, private changeD: ChangeDetectorRef){
 
     this.notasService.getNotas().subscribe(data=>{
       this.notas=data;

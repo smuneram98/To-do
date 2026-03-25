@@ -12,7 +12,7 @@ export class NotasService {
   constructor(private http:HttpClient){}
 
   getNotas(){
-    return this.http.get<NotasModel>(this.url);
+    return this.http.get<any>(this.url);
   }
 
 }

@@ -32,6 +32,14 @@
     top: 10%;
 }
 
+.nota{
+  background-color: #769fc3;
+  padding: 1%;
+  border: #000;
+  cursor: pointer;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
