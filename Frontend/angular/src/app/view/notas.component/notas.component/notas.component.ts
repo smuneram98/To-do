@@ -16,7 +16,7 @@ export class NotasComponent {
   modal=document.getElementById("nota");
   span = document.getElementsByClassName("close")[0];
 
-  //notas: NotasModel[] | undefined;
+  //notas: NotasModel | undefined;
 
   notas: any[]=[];
 

@@ -1,32 +1,59 @@
-<div class="vl"></div>
-
-<button class="crear" (click)="nuevaNota()">Crear Nota Nueva</button>
-
-<h2 class="pendiante-titulo">Pendientes</h2>
-<h2 class="completada-titulo">Completadas</h2>
 <div class="row g-3 m-1">
 
-  @for(n of notas; track $index){
-    <div class="col-12 col-sm-6 col-lg-3 ">
-      <div class="nota" style="width: 18rem;">
-        <div class="nota-body">
-          <h5 class="nota-title">{{n.titulo}}</h5>
-          <p class="nota-text">{{n.contenido}}</p>
-        </div>
-      </div>
+  <div class="vl"></div>
+  <div class="button-container">
+    <button class="crear" (click)="nuevaNota()">Crear Nota Nueva</button>
+  </div>
+
+  <div class="split-container">
+    <div class="pendientes">
+      <h2 class="pendiente-titulo">Pendientes</h2>
+     
+         @for(n of notas; track $index){
+           @if(!n.done){
+          <div class="col-12 col-sm-6 col-lg-3 ">
+            <div class="nota" style="width: 18rem;">
+              <div class="nota-body">
+                <h5 class="nota-title">{{n?.titulo}}</h5>
+                <p class="nota-text">{{n?.contenido}}</p>
+              </div>
+            </div>
+          </div>
+          <div>.</div>
+
+        }
+      }
+
     </div>
-    <div>.</div>
-  }
-</div>
+    <div class="completadas">
+      <h2 class="completada-titulo">Completadas</h2>
+      
+      @for(n of notas; track $index){
+          @if(n.done){
 
+          <div class="col-12 col-sm-6 col-lg-3 ">
+            <div class="nota" style="width: 18rem;">
+              <div class="nota-body">
+                <h5 class="nota-title">{{n.titulo}}</h5>
+                <p class="nota-text">{{n.contenido}}</p>
+              </div>
+            </div>
+          </div>
+          <div>.</div>
+        }
 
-<div id="nota-modal" class="modal">
+      }
+    </div>
+  </div>
+  
+  <div id="nota-modal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+
   </div>
 
 </div>
-
